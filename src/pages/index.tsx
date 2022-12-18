@@ -1,10 +1,15 @@
 import * as React from 'react'
-import Layout from '@components/Layout/Layout'
+import Layout from '@components/Layout'
+import LayoutHeader from '@components/LayoutHeader'
+import LayoutBody from '@components/LayoutBody'
+import LayoutFooter from '@components/LayoutFooter'
 
 export default function Home() {
    return (
       <Layout>
-         <h1 className="text-3xl font-bold underline">Hello world!</h1>
+         <LayoutHeader>1</LayoutHeader>
+         <LayoutBody>2</LayoutBody>
+         <LayoutFooter>3</LayoutFooter>
       </Layout>
    )
 }

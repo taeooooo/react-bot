@@ -1,15 +1,42 @@
 import * as React from 'react'
-import Layout from '@components/Layout'
-import LayoutHeader from '@components/LayoutHeader'
-import LayoutBody from '@components/LayoutBody'
-import LayoutFooter from '@components/LayoutFooter'
+import Conversation from '@components/Conversation'
+import Head from 'next/head'
 
-export default function Home() {
+type HomeProps = {
+   data: {
+      startMessage: string
+   }
+}
+
+export default function Home({ data }: HomeProps) {
    return (
-      <Layout>
-         <LayoutHeader>1</LayoutHeader>
-         <LayoutBody>2</LayoutBody>
-         <LayoutFooter>3</LayoutFooter>
-      </Layout>
+      <>
+         <Head>
+            <title>React Bot</title>
+            <meta
+               name="viewport"
+               content="initial-scale=1.0, width=device-width"
+            />
+         </Head>
+         <Conversation
+            data={{
+               talker: 'bot',
+               message: data.startMessage,
+               timestamp: new Date(),
+               isPending: false,
+            }}
+         />
+      </>
    )
+}
+
+export async function getServerSideProps() {
+   return {
+      props: {
+         data: {
+            startMessage:
+               '안녕하세요. 자바스크립트에 대해서 조금 대답할 수 있어요.',
+         },
+      },
+   }
 }

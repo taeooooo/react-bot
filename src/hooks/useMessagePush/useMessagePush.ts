@@ -3,7 +3,9 @@ import useMessagePushInput, { UseMessagePushInput } from './useMessagePushInput'
 import useMessagePushInputHandle, {
    UseMessagePushInputHandle,
 } from './useMessagePushInputHandle'
-import useMessagePushServerHandle from './useMessagePushServerHandle'
+import useMessagePushServerHandle, {
+   UseMessagePushServerHandleArgs,
+} from './useMessagePushServerHandle'
 
 type UseMssagePushState = {
    input: {
@@ -12,12 +14,7 @@ type UseMssagePushState = {
    }
 }
 
-type UseMemberPushArgs = {
-   onSending?: (reqMessage: string) => void
-   onFinally?: () => void
-   onSuccess?: (resMessage: string) => void
-   onError?: () => void
-}
+type UseMemberPushArgs = UseMessagePushServerHandleArgs['cb']
 
 const useMessagePush = ({ ...cb }: UseMemberPushArgs): UseMssagePushState => {
    const input = useMessagePushInput()

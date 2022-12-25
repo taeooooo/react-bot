@@ -1,7 +1,7 @@
 import { ConversationServerKey, ConversationRes } from '@hooks/useAxios'
 import { UseMessagePushInput } from './useMessagePushInput'
 
-type UseMessagePushServerHandleArgs = {
+export type UseMessagePushServerHandleArgs = {
    input: UseMessagePushInput
    cb: {
       onSending?: (reqMessage: string) => void
